@@ -4,7 +4,7 @@
  "editor.detectIndentation": true,
  "editor.fontFamily": "Anonymous Pro",
  "editor.minimap.enabled": false,
- "window.zoomLevel": 2, // 4
+ "window.zoomLevel": 2,
  "editor.tabSize": 1,
  "liveServer.settings.donotShowInfoMsg": true,
  "workbench.sideBar.location": "right",
@@ -12,5 +12,5 @@
  "editor.snippetSuggestions": "top",
  "editor.suggestSelection": "first",
  "git.autofetch": true,
- "git.confirmSync": false,
+ "git.confirmSync": false
 }
