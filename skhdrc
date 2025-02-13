@@ -1,0 +1,128 @@
+#---- MODIFER SHORTCUTS
+# rebind caps to this using karabiner or hyperkey 
+#hyper = ctrl + alt + shift + win
+
+#---- GENERAL CONTROLS
+
+# focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# swap managed window
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+
+# move managed window and split
+cmd + shift - h : yabai -m window --warp west
+cmd + shift - j : yabai -m window --warp south
+cmd + shift - k : yabai -m window --warp north
+cmd + shift - l : yabai -m window --warp east
+
+# rotate layout clockwise
+alt + shift - r : yabai -m space --rotate 270
+
+# flip layout
+alt + shift - x : yabai -m space --mirror x-axis
+alt + shift - y : yabai -m space --mirror y-axis
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+# send window to desktop and follow focus
+ctrl + shift - z : yabai -m window --space next; yabai -m space --focus prev
+ctrl + shift - x : yabai -m window --space next; yabai -m space --focus next
+ctrl + shift - 1 : yabai -m window --space 1 --focus
+ctrl + shift - 2 : yabai -m window --space 2 --focus
+ctrl + shift - 3 : yabai -m window --space 3 --focus
+ctrl + shift - 4 : yabai -m window --space 4 --focus
+ctrl + shift - 5 : yabai -m window --space 5 --focus
+ctrl + shift - 6 : yabai -m window --space 6 --focus
+ctrl + shift - 7 : yabai -m window --space 7 --focus
+ctrl + shift - 8 : yabai -m window --space 8 --focus
+ctrl + shift - 9 : yabai -m window --space 9 --focus
+ctrl + shift - 0 : yabai -m window --space 10 --focus
+
+#---- ZOOM CONTROLS
+
+# toggle window zoom
+#alt - f : yabai -m window --toggle zoom-fullscreen
+#alt - d : yabai -m window --toggle zoom-fullscreen
+alt - d : yabai -m window --toggle zoom-parent
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+#---- FLOATING CONTROLS
+
+# float / unfloat window and center on screen
+alt - space : yabai -m window --toggle float
+
+# toggle sticky(+float), topmost, picture-in-picture
+# alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+
+# move floating window
+ctrl + shift - a : yabai -m window --move rel:-12:0
+ctrl + shift - d : yabai -m window --move rel:12:0
+ctrl + shift - w : yabai -m window --move rel:0:-12
+ctrl + shift - s : yabai -m window --move rel:0:12
+
+# make floating window fill screen
+ctrl + alt - up     : yabai -m window --grid 1:1:0:0:1:1
+ctrl + alt - down     : yabai -m window --grid 8:8:1:1:6:6
+ctrl + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+ctrl + alt - right   : yabai -m window --grid 1:2:1:0:1:1
+
+#---- WINDOW RESIZING
+
+alt + shift - a : yabai -m window --resize left:-50:0 ; yabai -m window --resize right:-50:0
+alt + shift - s : yabai -m window --resize bottom:0:50 ; yabai -m window --resize top:0:50
+alt + shift - w : yabai -m window --resize top:0:-50 ; yabai -m window --resize bottom:0:-50
+alt + shift - d : yabai -m window --resize right:50:0 ; yabai -m window --resize left:50:0
+
+#---- OTHER SHORTCUTS
+
+# balance size of windows
+shift + alt - space : yabai -m space --balance
+
+# connect to bluetooth (replace with device mac address)
+alt - b : blueutil --power 1 && blueutil --connect 00-c5-85-88-02-9f
+# mouse hover focus
+alt - o : yabai -m config focus_follows_mouse autofocus
+alt - p : yabai -m config focus_follows_mouse off
+
+# restart yabai and skhd
+alt - r : yabai --restart-service && skhd --restart-service
+
+# control audio devices
+#alt - e : SwitchAudioSource -s "Aaron's Airpods Pro"
+#alt - r : SwitchAudioSource -s "MacBook Pro Speakers"
+
+
+
+# -----------------------------------------------------------------------------
+
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+# shift + cmd - n : yabai -m space --create && \
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+#                   yabai -m window --space "${index}" && \
+#                   yabai -m space --focus "${index}"
+
+# fast focus desktop
+# cmd + alt - x : yabai -m space --focus recent
+# cmd + alt - 1 : yabai -m space --focus 1
+
+# focus monitor
+# ctrl + alt - z  : yabai -m display --focus prev
+# ctrl + alt - 3  : yabai -m display --focus 3
+
+# send window to monitor and follow focus
+# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+
+# set insertion point in focused container
+# ctrl + alt - h : yabai -m window --insert west
+
+# open a new iTerm window
+#alt - return : osascript -e 'tell application "iTerm2" to create window with default profile command ""' || open -na iTerm
