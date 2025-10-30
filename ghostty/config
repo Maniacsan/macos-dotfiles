@@ -1,0 +1,6 @@
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+background = 000000
+# foreground = ffffff
+theme = seti
+
